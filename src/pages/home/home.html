@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Login Social Networks
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+      <ion-list>
+    
+          <ion-item>
+                  <ion-label floating>Usuario</ion-label>
+                  <ion-input type="text"  [(ngModel)]="email" >
+                  </ion-input>
+           </ion-item>
+          
+          <ion-item>
+                  <ion-label floating>Contraseña</ion-label>
+                  <ion-input type="password" [(ngModel)]="pass" >  
+                  </ion-input>
+           </ion-item>
+           
+            <button ion-button (click)="loginUS() ">
+                          Entrar
+            </button>
+          
+      </ion-list>
+        
+           
+  <button ion-button (click)="loginFace() "><ion-icon name="logo-facebook"></ion-icon>
+      Facebook
+  </button>
+  <button ion-button (click)="loginTwitter() "><ion-icon name="logo-twitter"></ion-icon>
+    Twitter
+</button>
+<button ion-button (click)="loginGoogle() "><ion-icon name="logo-google"></ion-icon>
+   Google
+</button>  
+  </ion-card>
+
+
+<ion-card *ngIf="logea">
+  <img src="{{provider.foto}}"/>
+  <ion-card-content>
+    <ion-card-title>
+      {{provider.name}}
+      </ion-card-title>
+    <p>
+     {{provider.email}}
+    </p>
+  </ion-card-content>
+</ion-card>
+<button ion-button (click)="logout()" *ngIf="logea">
+    cerrar sesion
+  </button>
+</ion-content>
